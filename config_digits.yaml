@@ -1,0 +1,20 @@
+# config_digits.yaml
+
+dataset:
+  name: Digits  # Ensure this matches the class name in datasets.py
+  path: ./Data/Digits
+
+model:
+  name: ResNet8
+  num_classes: 10  # Adjust based on the dataset
+
+training:
+  indomain_test: 0.0
+  quantization: true
+  quantization_bits: [2, 4]  # Specify the bit widths
+  batch_size: 64
+  epochs: 50
+  learning_rate: 0.01
+  quantization_mapping:
+    weights: [-2, 2]
+    activations: [-2*sigma, 2*sigma]  # Ensure this notation is valid in your code context
